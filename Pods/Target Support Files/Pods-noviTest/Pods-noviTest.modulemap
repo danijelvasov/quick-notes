@@ -1,0 +1,6 @@
+framework module Pods_noviTest {
+  umbrella header "Pods-noviTest-umbrella.h"
+
+  export *
+  module * { export * }
+}

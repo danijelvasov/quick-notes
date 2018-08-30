@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jcQ-vM-GPF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-8P-vOh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.0" green="0.60392156862745094" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 2" translatesAutoresizingMaskIntoConstraints="NO" id="aeM-6c-WgG">
+                                <rect key="frame" x="130" y="254" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="4XJ-z4-1Bk"/>
+                                    <constraint firstAttribute="height" constant="60" id="9C4-uk-A8N"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSI-Ii-7Uj">
+                                <rect key="frame" x="62" y="138" width="196.5" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="3Ee-1J-HSA"/>
+                                    <constraint firstAttribute="width" constant="196.5" id="pYk-Ax-Xxg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="34"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Danijel Vasov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNp-5Z-qbi">
+                                <rect key="frame" x="61.5" y="202" width="197" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kCg-Ne-Lgz"/>
+                                    <constraint firstAttribute="width" constant="197" id="tGH-16-FVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pNp-5Z-qbi" firstAttribute="centerX" secondItem="jcQ-vM-GPF" secondAttribute="centerX" id="2ex-9t-uXn"/>
+                            <constraint firstItem="aeM-6c-WgG" firstAttribute="centerY" secondItem="jcQ-vM-GPF" secondAttribute="centerY" id="5od-op-0tY"/>
+                            <constraint firstItem="oPx-8P-vOh" firstAttribute="leading" secondItem="saw-OC-Dus" secondAttribute="leading" id="6ez-ee-iVa"/>
+                            <constraint firstItem="aeM-6c-WgG" firstAttribute="top" secondItem="xSI-Ii-7Uj" secondAttribute="bottom" constant="60" id="DpV-2a-pUe"/>
+                            <constraint firstAttribute="bottom" secondItem="oPx-8P-vOh" secondAttribute="bottom" id="OA2-Lb-FP6"/>
+                            <constraint firstItem="pNp-5Z-qbi" firstAttribute="top" secondItem="xSI-Ii-7Uj" secondAttribute="bottom" constant="8" id="Pi5-Ak-4B0"/>
+                            <constraint firstItem="xSI-Ii-7Uj" firstAttribute="centerX" secondItem="jcQ-vM-GPF" secondAttribute="centerX" id="aKs-se-3Tc"/>
+                            <constraint firstItem="aeM-6c-WgG" firstAttribute="centerX" secondItem="jcQ-vM-GPF" secondAttribute="centerX" id="gOl-7q-UWD"/>
+                            <constraint firstItem="oPx-8P-vOh" firstAttribute="top" secondItem="jcQ-vM-GPF" secondAttribute="top" id="oAI-en-Amw"/>
+                            <constraint firstItem="oPx-8P-vOh" firstAttribute="trailing" secondItem="saw-OC-Dus" secondAttribute="trailing" id="zxN-zp-Xuo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="saw-OC-Dus"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.5" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group 2" width="60" height="60"/>
+    </resources>
+</document>
