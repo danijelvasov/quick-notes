@@ -56,10 +56,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? Cell  else { return UITableViewCell()}
-        
-        let item = objectsArray[indexPath.row]
-        cell.cellLabel.text = item.note
-        return cell
+            let item = objectsArray[indexPath.row]
+            cell.cellLabel.text = item.note
+            return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (row, indexPath) in
             let itemToRemove = self.objectsArray[indexPath.row]
@@ -94,32 +94,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             editingAlert.addAction(update)
             editingAlert.addAction(cancel)
         self.present(editingAlert, animated: true, completion: nil)
-            
         }
-        
         deleteAction.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return [deleteAction,editAction]
     }
     
-    
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-//        return .delete
-//    }
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let itemToRemove = objectsArray[indexPath.row]
-//            try! self.realm.write {
-//                self.realm.delete(itemToRemove)
-//            }
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
-    
     func reload() {
         tableView.reloadData()
     }
-    
 }
 
 class Item: Object {
