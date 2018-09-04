@@ -69,19 +69,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .delete
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let itemToRemove = objectsArray[indexPath.row]
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (row, indexPath) in
+            let itemToRemove = self.objectsArray[indexPath.row]
             try! self.realm.write {
                 self.realm.delete(itemToRemove)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (row, indexPath) in
+            let editingAlert = UIAlertController(title: "Edit selected item", message: "What do you want to do?", preferredStyle: .alert)
+            editingAlert.addTextField(configurationHandler: nil)
+            let textField = (editingAlert.textFields?.first)! as UITextField
+            let itemToEdit = self.objectsArray[indexPath.row]
+            textField.text = itemToEdit.note
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            let update = UIAlertAction(title: "Update", style: .default, handler: { (action) in
+                try! self.realm.write {
+                   itemToEdit.setValue(textField.text, forKey: "note")
+                }
+                self.reload()
+            })
+            editingAlert.addAction(update)
+            editingAlert.addAction(cancel)
+        self.present(editingAlert, animated: true, completion: nil)
+            
+        }
+        
+        deleteAction.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        editAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        return [deleteAction,editAction]
     }
+    
+    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        return .delete
+//    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let itemToRemove = objectsArray[indexPath.row]
+//            try! self.realm.write {
+//                self.realm.delete(itemToRemove)
+//            }
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//    }
     
     func reload() {
         tableView.reloadData()
